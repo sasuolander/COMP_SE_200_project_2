@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx jest test",
     "coverage": "npx jest --coverage",
-    "coverageReport": "npx jest --coverage && coveralls < coverage/lcov.info"
+    "coverageReport": "npx jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "author": "",
   "license": "MIT",
