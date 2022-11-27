@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/jest/bin/jest.js",
-    "coverage": "npx jest --coverage"
+    "test": "npx jest test",
+    "coverage": "npx jest --coverage",
+    "coverageReport": "npx jest --coverage && coveralls < coverage/lcov.info"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "jest": "^29.3.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "coveralls": "^3.1.1"
+  }
 }
