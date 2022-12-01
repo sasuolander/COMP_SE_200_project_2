@@ -7,7 +7,7 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "coverage": "npx jest --coverage",
-    "coverageReport": "node_modules/.bin/jest --coverage && coveralls < coverage/lcov.info"
+    "coverageReport": "node --experimental-vm-modules node_modules/.bin/jest --coverage && coveralls < coverage/lcov.info"
   },
   "author": "",
   "license": "MIT",
