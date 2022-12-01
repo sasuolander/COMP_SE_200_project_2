@@ -8,19 +8,67 @@ import words from"../helperlibrary/src/words"
 
 
 describe("isEmpty", () => {
+
+  // prepare test values
+  const emptyArray = [] 
+  const array = ["test"] 
+  const arrayTwoItem = ["test","test"] 
+
+  const emptyObject= {}
+  const emptySet = new Set()
+  const emptyMap = new Map()
+
+  const nonEmptyObject= {value:""}
+  const nonEmptySet = new Set([1,2,3,4])
+  const nonEmptyMap = new Map([[1,'one'],[2,'two'],[3,'three'],]);
+
   test("Check if array is empty", () => {
-    const emptyArray = [] // prepare
+   
     expect(isEmpty(emptyArray)).toBe(true) // test
   });
 
   test("Array is not empty, Return false", () => {
-    const array = ["test"]  // prepare
+    
     expect(isEmpty(array)).toBe(false) // test
   });
   test("Array is not empty, more than one item, Return false", () => {
-    const array = ["test","test"] // prepare
-    expect(isEmpty(array)).toBe(false) // test
+    
+    expect(isEmpty(arrayTwoItem)).toBe(false) // test
   });
+
+
+  test("Check if object is empty", () => {
+   
+    expect(isEmpty(emptyObject)).toBe(true) // test
+  });
+
+  test("Check if object is empty, non empty objet, return false", () => {
+   
+    expect(isEmpty(nonEmptyObject)).toBe(false) // test
+  });
+
+
+  test("Check if set is empty", () => {
+   
+    expect(isEmpty(emptySet)).toBe(true) // test
+  });
+  test("Check if set is empty, non empty set, return false", () => {
+   
+    expect(isEmpty(nonEmptySet)).toBe(false) // test
+  });
+
+
+  test("Check if map is empty", () => {
+   
+    expect(isEmpty(emptyMap)).toBe(true) // test
+  });
+
+  test("Check if mao is empty, non empty map, return false", () => {
+   
+    expect(isEmpty(nonEmptyMap)).toBe(false) // test
+  });
+
+
 });
 
 describe("isArrayLike", () => {
@@ -41,6 +89,8 @@ describe("isArrayLike", () => {
   });
 
 });
+
+
 describe("countBy", () => {
   test("dummy", () => {
     expect(3).toBe(3);
@@ -52,16 +102,6 @@ describe("filter", () => {
   });
 });
 describe("words", () => {
-  test("dummy", () => {
-    expect(3).toBe(3);
-  });
-});
-describe("isEmpty", () => {
-  test("dummy", () => {
-    expect(3).toBe(3);
-  });
-});
-describe("isEmpty", () => {
   test("dummy", () => {
     expect(3).toBe(3);
   });
