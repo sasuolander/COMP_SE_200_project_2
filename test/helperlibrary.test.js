@@ -90,17 +90,27 @@ describe("isArrayLike", () => {
 
 });
 
-
 describe("countBy", () => {
-  test("dummy", () => {
-    expect(3).toBe(3);
+
+  const items = [
+       { 'item': 'Dummy3', 'bought': true },
+       { 'item': 'Dummy1', 'bought': true },
+       { 'item': 'Dummy1', 'bought': false }
+     ]
+
+  test("Check items", () => {
+   const result = countBy(items, value => value.bought);
+    expect(result.true).toEqual (1);
+    expect(result.false).toEqual (0);
   });
 });
+
 describe("filter", () => {
   test("dummy", () => {
     expect(3).toBe(3);
   });
 });
+
 describe("words", () => {
   test("dummy", () => {
     expect(3).toBe(3);
