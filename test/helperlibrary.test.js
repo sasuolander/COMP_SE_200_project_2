@@ -188,7 +188,7 @@ describe("filter", () => {
   });
 });
 
-describe("words", () => {
+describe("words", () => { // TODO add test for ascii and unicode symbols
   test("Split without regex", () => {
     const result = words("Apple, Fish, & Lounas");
     expect(result.length).toEqual(3);
