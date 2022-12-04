@@ -98,11 +98,28 @@ describe("countBy", () => {
        { 'item': 'Dummy1', 'bought': false }
      ]
 
-  test("Check items", () => {
-   const result = countBy(items, value => value.bought);
-    expect(result.true).toEqual (1);
-    expect(result.false).toEqual (0);
+  const items2 = [6.1, 4.2, 6.3]
+  const items3 = ['one', 'two', 'three']
+
+  test("Check items, Array", () => {
+   const result = countBy(items2, Math.floor);
+   console.log(result)
+    expect(result[4]).toEqual (1);
+    expect(result[6]).toEqual (2);
   });
+
+  test("Check items, Array and prototype properties", () => {
+    const result = countBy(items3, 'length');
+     expect(result[3]).toEqual (2);
+     expect(result[5]).toEqual (1);
+   });
+
+  test("Check items, Object", () => {
+    const result = countBy(items, value => value.bought);
+     expect(result.true).toEqual (1);
+     expect(result.false).toEqual (0);
+   });
+
 });
 
 describe("filter", () => {
