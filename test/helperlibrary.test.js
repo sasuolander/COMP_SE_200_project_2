@@ -189,8 +189,12 @@ describe("filter", () => {
 });
 
 describe("words", () => {
-  test("dummy", () => {
-    const result = words("fred, barney, & pebbles");
+  test("Split without regex", () => {
+    const result = words("Apple, Fish, & Lounas");
     expect(result.length).toEqual(3);
+  });
+  test("Split with regex", () => {
+    const result = words("Apple, Fish, & Lounas",/[^, ]+/g);
+    expect(result.length).toEqual(4);
   });
 });
