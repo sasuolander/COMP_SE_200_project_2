@@ -1,6 +1,6 @@
 FROM node:14
 
-WORKDIR testfolder
+WORKDIR /testfolder
 
 COPY . .
 RUN npm install
