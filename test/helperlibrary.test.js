@@ -7,6 +7,7 @@ import words from "../helperlibrary/src/words";
 describe("isEmpty", () => {
   // prepare test values
   const emptyArray = [];
+  const emptyString = "";
   const array = ["test"];
   const arrayTwoItem = ["test", "test"];
 
@@ -20,6 +21,16 @@ describe("isEmpty", () => {
     [1, "one"],
     [2, "two"],
     [3, "three"],
+  ]);
+
+const arrayTypped = new Int8Array
+const arrayTyppedFilled = new Int8Array(1)
+    arrayTyppedFilled[0] = 23
+  const nonEmptySetnonEmptyObjectString = new Set(["1", "2", "3", "3"]);
+  const nonEmptyMapnonEmptyObjectString = new Map([
+    ["1", "one"],
+    ["2", "two"],
+    ["3", "three"],
   ]);
 
   test("Check if array is empty", () => {
@@ -47,14 +58,37 @@ describe("isEmpty", () => {
   test("Check if set is empty, non empty set, return false", () => {
     expect(isEmpty(nonEmptySet)).toBe(false); // test
   });
+  test("Check if set is empty, non empty string set, return false", () => {
+    expect(isEmpty(nonEmptySetnonEmptyObjectString)).toBe(false); // test
+  });
 
   test("Check if map is empty", () => {
     expect(isEmpty(emptyMap)).toBe(true); // test
   });
 
-  test("Check if mao is empty, non empty map, return false", () => {
+  test("Check if map is empty, non empty map, return false", () => {
     expect(isEmpty(nonEmptyMap)).toBe(false); // test
   });
+
+  test("Check if map is empty, non empty string map, return false", () => {
+    expect(isEmpty(nonEmptyMapnonEmptyObjectString)).toBe(false); // test
+  });
+
+
+  test("Check if nil is empty", () => {
+    expect(isEmpty(null)).toBe(true); // test
+  });
+  test("Check if empty string is empty", () => {
+    expect(isEmpty(emptyString)).toBe(true); // test
+  });
+
+  test("Check if typed array is empty", () => {
+    expect(isEmpty(arrayTypped)).toBe(true); // test
+  });
+  test("Check if typed array is empty, prefilled", () => {
+    expect(isEmpty(arrayTyppedFilled)).toBe(false); // test
+  });
+
 });
 
 describe("isArrayLike", () => {
