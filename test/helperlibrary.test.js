@@ -85,7 +85,7 @@ describe("countBy", () => {
 
   test("Check items, Array", () => {
     const result = countBy(items2, Math.floor);
-    console.log(result); // here is bug { '4': 0, '6': 1 }
+    //console.log(result); // here is bug { '4': 0, '6': 1 }
     expect(result[4]).toEqual(1);
     expect(result[6]).toEqual(2);
   });
@@ -179,7 +179,7 @@ describe("filter", () => {
     const result2 = filter(listNumber, (value) => value == 15);
     expect(result2.length).toEqual(1);
     const result3 = filter(listNumber, (value) => value == 50);
-    console.log(result3) // here is bug [ [] ]
+    //console.log(result3) // here is bug [ [] ]
     expect(result3.length).toEqual(0);
   });
 

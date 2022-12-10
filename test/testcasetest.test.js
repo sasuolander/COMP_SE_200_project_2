@@ -1,4 +1,4 @@
-describe("TC1: In SPPAC page when searching item, it returns what is searched.", () => {
+/* describe("TC1: In SPPAC page when searching item, it returns what is searched.", () => {
   test("dummy", () => {
     expect(3).toBe(3);
   });
@@ -30,3 +30,4 @@ describe("TC2: In SPPAC page when searching item by using category, it returns w
         expect(3).toBe(3);
     });
   });
+ */
