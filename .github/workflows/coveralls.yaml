@@ -18,10 +18,10 @@ jobs:
 
       - name: npm install, npm run test
         run: |
-          npm install
+          £npm install
           #npm run test
           #npm run coverage
-          npm run coveralls
+          £npm run coveralls
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
