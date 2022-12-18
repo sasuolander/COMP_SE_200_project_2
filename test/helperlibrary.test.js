@@ -132,7 +132,7 @@ describe("countBy", () => {
 
   test("21 Check items, Object", () => {
     const result = countBy(items, (value) => value.bought); // here is also bug
-      console.log(result);
+      //console.log(result);
     expect(result.true).toEqual(2);
     expect(result.false).toEqual(1);
   });
