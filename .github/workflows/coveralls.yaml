@@ -1,6 +1,6 @@
 on: ["push", "pull_request"]
 
-name: Test Coverall
+name: Test Coveralls
 
 jobs:
 
@@ -19,7 +19,6 @@ jobs:
     - name: npm install, run tests
     - run: npm install
     - run: npm run test
-      continue-on-error: true
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
