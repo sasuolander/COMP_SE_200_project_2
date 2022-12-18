@@ -18,9 +18,12 @@ jobs:
       - name: npm install, npm run test
         run: |
           npm install
+          continue-on-error: true
           #npm run test
           npm run coverage
+          continue-on-error: true
           npm run coveralls
+          continue-on-error: true
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
