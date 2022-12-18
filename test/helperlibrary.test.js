@@ -33,75 +33,75 @@ const arrayTyppedFilled = new Int8Array(1)
     ["3", "three"],
   ]);
 
-  test("Check if array is empty", () => {
+  test("1 Check if array is empty", () => {
     expect(isEmpty(emptyArray)).toBe(true); // test
   });
 
-  test("Array is not empty, Return false", () => {
+  test("2 Array is not empty, Return false", () => {
     expect(isEmpty(array)).toBe(false); // test
   });
-  test("Array is not empty, more than one item, Return false", () => {
+  test("3 Array is not empty, more than one item, Return false", () => {
     expect(isEmpty(arrayTwoItem)).toBe(false); // test
   });
 
-  test("Check if object is empty", () => {
+  test("4 Check if object is empty", () => {
     expect(isEmpty(emptyObject)).toBe(true); // test
   });
 
-  test("Check if object is empty, non empty objet, return false", () => {
+  test("6 Check if object is empty, non empty objet, return false", () => {
     expect(isEmpty(nonEmptyObject)).toBe(false); // test
   });
 
-  test("Check if set is empty", () => {
+  test("7 Check if set is empty", () => {
     expect(isEmpty(emptySet)).toBe(true); // test
   });
-  test("Check if set is empty, non empty set, return false", () => {
+  test("8 Check if set is empty, non empty set, return false", () => {
     expect(isEmpty(nonEmptySet)).toBe(false); // test
   });
-  test("Check if set is empty, non empty string set, return false", () => {
+  test("9 Check if set is empty, non empty string set, return false", () => {
     expect(isEmpty(nonEmptySetnonEmptyObjectString)).toBe(false); // test
   });
 
-  test("Check if map is empty", () => {
+  test("10 Check if map is empty", () => {
     expect(isEmpty(emptyMap)).toBe(true); // test
   });
 
-  test("Check if map is empty, non empty map, return false", () => {
+  test("11 Check if map is empty, non empty map, return false", () => {
     expect(isEmpty(nonEmptyMap)).toBe(false); // test
   });
 
-  test("Check if map is empty, non empty string map, return false", () => {
+  test("12 Check if map is empty, non empty string map, return false", () => {
     expect(isEmpty(nonEmptyMapnonEmptyObjectString)).toBe(false); // test
   });
 
 
-  test("Check if nil is empty", () => {
+  test("13 Check if nil is empty", () => {
     expect(isEmpty(null)).toBe(true); // test
   });
-  test("Check if empty string is empty", () => {
+  test("14 Check if empty string is empty", () => {
     expect(isEmpty(emptyString)).toBe(true); // test
   });
 
-  test("Check if typed array is empty", () => {
+  test("15 Check if typed array is empty", () => {
     expect(isEmpty(arrayTypped)).toBe(true); // test
   });
-  test("Check if typed array is empty, prefilled", () => {
+  test("16 Check if typed array is empty, prefilled", () => {
     expect(isEmpty(arrayTyppedFilled)).toBe(false); // test
   });
 
 });
 
 describe("isArrayLike", () => {
-  test("Check if it is array, return true", () => {
+  test("17 Check if it is array, return true", () => {
     const array = []; // prepare
     expect(isArrayLike(array)).toBe(true); // test
   });
-  test("Check if it is array, two item in array, return true", () => {
+  test("18 Check if it is array, two item in array, return true", () => {
     const array = ["test", "test"]; // prepare
     expect(isArrayLike(array)).toBe(true); // test
   });
 
-  test("Check if it is array, object, return false", () => {
+  test("19 Check if it is array, object, return false", () => {
     const object = {}; // prepare
     expect(isArrayLike(object)).toBe(false); // test
   });
@@ -117,20 +117,20 @@ describe("countBy", () => {
   const items2 = [6.1, 4.2, 6.3];
   const items3 = ["one", "two", "three"];
 
-  test("Check items, Array", () => {
+  test("20 Check items, Array", () => {
     const result = countBy(items2, Math.floor);
     //console.log(result); // here is bug { '4': 0, '6': 1 }
     expect(result[4]).toEqual(1);
     expect(result[6]).toEqual(2);
   });
 
-  test("Check items, Array and prototype properties", () => {
+  test("21 Check items, Array and prototype properties", () => {
     const result = countBy(items3, "length");
     expect(result[3]).toEqual(2);
     expect(result[5]).toEqual(1);
   });
 
-  test("Check items, Object", () => {
+  test("22 Check items, Object", () => {
     const result = countBy(items, (value) => value.bought); // here is also bug
       console.log(result);
     expect(result.true).toEqual(2);
@@ -177,7 +177,7 @@ describe("filter", () => {
 
   const listNumber = [10, 10, 10, 10, 20, 20, 20, 15, 20];
 
-  test("filter array with object, string", () => {
+  test("23 filter array with object, string", () => {
     const result = filter(listObject, (value) => value.productName == "Talo");
     expect(result.length).toEqual(4);
     const result2 = filter(
@@ -187,28 +187,28 @@ describe("filter", () => {
     expect(result2.length).toEqual(1);
   });
 
-  test("filter array with object, number", () => {
+  test("24 filter array with object, number", () => {
     const result = filter(listObject, (value) => value.price == 20);
     expect(result.length).toEqual(4);
     const result2 = filter(listObject, (value) => value.price == 15);
     expect(result2.length).toEqual(1);
   });
 
-  test("filter array with object, boolean", () => {
+  test("25 filter array with object, boolean", () => {
     const result = filter(listObject, (value) => value.bought == true);
     expect(result.length).toEqual(4);
     const result2 = filter(listObject, (value) => value.bought == false);
     expect(result2.length).toEqual(5);
   });
 
-  test("filter array, string", () => {
+  test("26 filter array, string", () => {
     const result = filter(listString, (value) => value == "Talo");
     expect(result.length).toEqual(4);
     const result2 = filter(listString, (value) => value == "Siina2");
     expect(result2.length).toEqual(1);
   });
 
-  test("filter array, number", () => {
+  test("27 filter array, number", () => {
     const result = filter(listNumber, (value) => value == 20);
     expect(result.length).toEqual(4);
     const result2 = filter(listNumber, (value) => value == 15);
@@ -218,7 +218,7 @@ describe("filter", () => {
     expect(result3.length).toEqual(0);
   });
 
-  test("filter array, boolean", () => {
+  test("28 filter array, boolean", () => {
     const result = filter(listBoolean, (value) => value == true);
     expect(result.length).toEqual(4);
     const result2 = filter(listBoolean, (value) => value == false);
@@ -228,11 +228,11 @@ describe("filter", () => {
 });
 
 describe("words", () => { // TODO add test for ascii and unicode symbols
-  test("Split without regex", () => {
+  test("29 Split without regex", () => {
     const result = words("Apple, Fish, & Lounas");
     expect(result.length).toEqual(3);
   });
-  test("Split with regex", () => {
+  test("30 Split with regex", () => {
     const result = words("Apple, Fish, & Lounas",/[^, ]+/g);
     expect(result.length).toEqual(4);
   });
