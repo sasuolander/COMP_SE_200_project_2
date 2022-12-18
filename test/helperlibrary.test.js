@@ -132,8 +132,9 @@ describe("countBy", () => {
 
   test("Check items, Object", () => {
     const result = countBy(items, (value) => value.bought);
-    expect(result.true).toEqual(1);
-    expect(result.false).toEqual(0);
+      console.log(result);
+    expect(result.true).toEqual(2);
+    expect(result.false).toEqual(1);
   });
 });
 
