@@ -1,19 +1,30 @@
-name: run-tests
-on: [push]
+on: ["push", "pull_request"]
+
+name: Test Coveralls
+
 jobs:
-  run-tests:
+  build:
+    name: Build
     runs-on: ubuntu-latest
+    continue-on-error: true
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
         with:
-          node-version: 16
-      - name: Install modules
-        run: npm install
-      - name: Run tests, create lcov file
-        run: npm test --coverage
-        continue-on-error: true
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@1.1.3
+          node-version: 16.x
+
+      - name: npm install, npm run test
+        run: |
+          npm install
+          #npm run test
+          #npm run coverage
+          npm run coveralls
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
         with:
-            github-token: ${{ github.token }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
